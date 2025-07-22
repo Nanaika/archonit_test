@@ -26,7 +26,6 @@ class CoinRepository implements IRepository {
 
   @override
   Future<List<Crypto>> getAssets({int limit = 15, int skip = 0}) async {
-    print('SKEP ==================  ${skip}');
     try {
       final response = await _dio.get(
         '/assets?apiKey=$_apiKey',

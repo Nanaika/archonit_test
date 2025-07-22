@@ -31,7 +31,6 @@ class _HomePageState extends State<HomePage> {
       body: BlocBuilder<HomeBloc, HomeBlocState>(
         builder: (BuildContext context, state) {
           return ListView.builder(
-            addAutomaticKeepAlives: true,
               controller: _scrollController,
               itemCount: state.cryptos.length,
               padding: EdgeInsets.only(left: 20, right: 20, top: MediaQuery.of(context).padding.top),

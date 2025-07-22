@@ -20,12 +20,9 @@ class HomeBloc extends Cubit<HomeBlocState> {
   }
 
   getCryptos() async {
-
-    print('ENTER getCryptos ========= offset -- ${offset}');
     if(state.isLoadingCryptos) return;
     emit(state.copyWith(isLoadingCryptos: true));
     final data = await repo.getAssets(skip: offset);
-    // final mergedData = [...state.cryptos, ...data];
     final mergedData = List<Crypto>.from(state.cryptos)..addAll(data);
     emit(state.copyWith(cryptos: mergedData, isLoadingCryptos: false));
     offset += 15;
